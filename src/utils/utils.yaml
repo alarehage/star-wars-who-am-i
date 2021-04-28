@@ -1,0 +1,5 @@
+image_splitter:
+  data_path: project_data/images
+  output_folder: trial
+  ratio: [0.6, 0.2, 0.2]
+  seed: 42
