@@ -28,8 +28,4 @@ if __name__ == "__main__":
     RATIO = tuple(params["ratio"])
     SEED = params["seed"]
 
-    import pdb
-
-    pdb.set_trace()
-
     split(DATA_PATH, OUTPUT_FOLDER, RATIO, SEED)
