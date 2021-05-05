@@ -56,7 +56,7 @@ def load_model(model_path: Path):
     Args:
         model_path: path to saved model
     Returns:
-        model: saved model from A5
+        model: saved model
     """
     model = tf.keras.models.load_model(model_path)
 
