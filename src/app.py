@@ -12,8 +12,8 @@ import marko
 
 from .inference import preprocess, load_model, predict_image
 
-SCRIPT_PATH = Path(__file__).parent.absolute()
-MODEL_PATH = SCRIPT_PATH.parent / "saved_models"
+SCRIPT_PATH = Path(__file__).absolute()
+MODEL_PATH = SCRIPT_PATH.parent.parent / "saved_models"
 
 logging.basicConfig(
     format="[%(asctime)s] %(levelname)-8s %(name)-12s %(message)s", level=logging.INFO
