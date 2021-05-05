@@ -48,7 +48,7 @@ def short_description():
             {
                 "model": "MobileNetv2",
                 "input-size": "224x224x3",
-                "num-classes": 12,
+                "num-classes": 42,
                 "pretrained-on": "ImageNet",
             }
         )
