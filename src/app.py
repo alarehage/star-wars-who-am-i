@@ -78,17 +78,16 @@ def predict():
         return jsonify(result=result)
 
 
-@app.route("/readme", methods=["GET"])
-def readme():
-    if request.method == "GET":
-        with open("static/README_WEB.md", "r") as f:
-            readme = marko.convert(f.read())
+# @app.route("/readme", methods=["GET"])
+# def readme():
+#     if request.method == "GET":
+#         with open("static/README_WEB.md", "r") as f:
+#             readme = marko.convert(f.read())
 
-        return render_template("readme.html", data=readme)
+#         return render_template("readme.html", data=readme)
 
 
 if __name__ == "__main__":
     app.run(debug=True, port=8000)
 
-    # For production mode, comment the line above and uncomment below
     # serve(app, host="0.0.0.0", port=8000)
