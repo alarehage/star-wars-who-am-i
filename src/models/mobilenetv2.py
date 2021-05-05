@@ -306,10 +306,6 @@ if __name__ == "__main__":
         DATA_PATH, SEED, HEIGHT, WIDTH, BATCH_SIZE
     )
 
-    import pdb
-
-    pdb.set_trace()
-
     history = model.fit(train_generator, val_generator, EPOCHS)
 
     if SAVE:
