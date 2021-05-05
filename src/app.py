@@ -13,7 +13,7 @@ import marko
 from .inference import preprocess, load_model, predict_image
 
 SCRIPT_PATH = Path(__file__).parent.absolute()
-MODEL_PATH = SCRIPT_PATH.parent.parent / "saved_models"
+MODEL_PATH = SCRIPT_PATH.parent / "saved_models"
 
 logging.basicConfig(
     format="[%(asctime)s] %(levelname)-8s %(name)-12s %(message)s", level=logging.INFO
@@ -71,8 +71,8 @@ def predict():
         logger.info("Image predicted")
 
         # consolidate results
-        result = f"Food: {pred}<br/>Proba: {str(round(proba, 2))}"
-        logger.info(f"Predicted food: {pred}")
+        result = f"Class: {pred}<br/>Proba: {str(round(proba, 2))}"
+        logger.info(f"Predicted class: {pred}")
         logger.info(f"Proba: {proba:0.2f}")
 
         return jsonify(result=result)
@@ -81,16 +81,14 @@ def predict():
 @app.route("/readme", methods=["GET"])
 def readme():
     if request.method == "GET":
-        with open(
-            os.path.join(os.path.dirname(__file__), "static/README_WEB.md"), "r"
-        ) as f:
+        with open("static/README_WEB.md", "r") as f:
             readme = marko.convert(f.read())
 
         return render_template("readme.html", data=readme)
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True, port=8000)
+    app.run(debug=True, port=8000)
 
     # For production mode, comment the line above and uncomment below
     # serve(app, host="0.0.0.0", port=8000)
