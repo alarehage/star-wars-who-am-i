@@ -3,6 +3,10 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   -webkit-font-smoothing: antialiased;
   background-color: #f8f8f8;
+  background-image: url('https://i.redd.it/51x5ii2ekem01.jpg');
+  /* background-image: url('https://i.redd.it/964hh5yorww41.jpg'); */
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* Global button style */
@@ -44,6 +48,9 @@ body {
   font-size: 2.3rem;
   font-weight: 300;
   margin: 0.8rem 0;
+  font-family: fantasy;
+  color: rgb(243, 243, 243);
+  -webkit-text-stroke: 1.11px black
 }
 
 .hidden {
@@ -83,7 +90,7 @@ body {
 }
 
 .upload-box:hover {
-  border-color: rgb(255, 0, 0);
+  border-color: rgb(0, 255, 115);
   /* border-width: 1px; */
   border-style: solid;
 }
