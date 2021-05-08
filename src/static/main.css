@@ -83,7 +83,9 @@ body {
 }
 
 .upload-box:hover {
-  border-color: rgb(0, 120, 212);
+  border-color: rgb(255, 0, 0);
+  /* border-width: 1px; */
+  border-style: solid;
 }
 
 .upload-box #image-preview {
