@@ -6,15 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Star Wars Who Am I</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='main.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css') }}" />
 </head>
 
 <body>
   {% block content %}{% endblock %}
 </body>
 
-<footer>
-  <script src="{{ url_for('static',filename='main.js') }}"></script>
-</footer>
+<section>
+  <script src="{{ url_for('static',filename='js/main.js') }}"></script>
+</section>
 
 </html>
