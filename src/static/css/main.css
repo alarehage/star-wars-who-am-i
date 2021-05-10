@@ -2,11 +2,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   -webkit-font-smoothing: antialiased;
-  background-color: #f8f8f8;
-  background-image: url('https://i.redd.it/51x5ii2ekem01.jpg');
-  /* background-image: url('https://i.redd.it/964hh5yorww41.jpg'); */
-  background-repeat: no-repeat;
-  background-size: cover;
+  margin: 0;
+  background-color: black;
 }
 
 /* Global button style */
@@ -42,6 +39,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-image: url('https://i.redd.it/51x5ii2ekem01.jpg');
+  /* background-image: url('https://i.redd.it/964hh5yorww41.jpg'); */
+  background-repeat: no-repeat;
+  background-size: cover;  
+  height: 1368px;
+  width: inherit;
+  position: relative;
+  top: 1000px;
 }
 
 .main .title h3 {
@@ -171,4 +176,128 @@ body {
     stroke-dashoffset: -65.973;
     transform: rotate(90deg);
   }
+}
+
+/* Intro crawl */
+.star {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background-color: white;
+}
+
+/* Set the animation, color, size and hide the text */
+.intro {
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    z-index: 1;
+    animation: intro 3s ease-out 3s;
+    color: rgb(75, 213, 238);
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 300%;
+    opacity: 0;
+  }
+
+@keyframes intro {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Set the animation & hide the logo */
+.logo {    
+    position: absolute;
+    top: 20%;
+    left: 45%;
+    z-index: 1;
+    margin: auto;
+    animation: logo 9s ease-out 9s;
+    opacity: 0;
+}
+
+.logo svg {
+    width: inherit;
+}
+
+/* Scale the logo down and maintain it centered */
+@keyframes logo {
+    0% {
+        width: 18em;        
+        transform: scale(2.75);
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+        width: 18em;      
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.1);
+        width: 18em;
+    }
+}
+
+p {
+  color: #FFFF82;
+}
+
+/* Set the font, lean the board, position it */
+#board {
+  font-family: sans-serif;
+  transform: perspective(300px) rotateX(25deg);
+  transform-origin: 50% 100%;
+  text-align: justify;
+  position: absolute;
+  margin-left: -9em;
+  font-weight: bold;
+  overflow: hidden;
+  font-size: 350%;
+  height: 50em;
+  width: 18em;
+  bottom: 0;
+  left: 50%;
+}
+
+#board:after {    
+  position: absolute;
+  content: ' ';
+  bottom: 60%;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+/* Set the scrolling animation and position it */
+#content {
+  animation: scroll 100s linear 15s;
+  position: absolute;
+  top: 100%;
+}
+
+#title, #subtitle {
+  text-align: center;
+}
+
+@keyframes scroll {
+    0% {
+        top: 100%;
+    }
+    100% {
+        top: -170%;
+    }
+}
+
+html {
+  scroll-behavior: smooth;
 }
