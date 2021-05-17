@@ -142,7 +142,7 @@ class StarWarsChars:
         x = Dense(256, activation="relu")(x)
         x = Dense(128, activation="relu")(x)
         x = Dropout(0.2)(x)
-        predictions = Dense(42, activation="softmax")(x)
+        predictions = Dense(65, activation="softmax")(x)
 
         self.model = Model(base_model.input, predictions)
 
