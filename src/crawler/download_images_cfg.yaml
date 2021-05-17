@@ -1,44 +1,67 @@
 max_num: 150
 keywords: 
-  - luke skywalker
   - c3po
   - r2d2
-  - darth vader
-  - leia organa
   - obi wan kenobi
+  - qui gon jinn
+  - shmi skywalker
   - anakin skywalker
-  - wilhuff tarkin
+  - yoda
   - chewbacca
   - han solo
+  - luke skywalker
+  - leia organa
   - greedo
   - jabba the hutt
-  - yoda
-  - palpatine
-  - boba fett
   - lando calrissian
-  - ackbar
+  - boba fett
+  - jango fett
+  - admiral ackbar
   - mon mothma
   - wicket systri warrick
-  - qui gon jinn
-  - nute gunray
   - jar jar binks
-  - shmi skywalker
-  - darth maul
   - mace windu
   - ki adi mundi
   - kit fisto
   - plo koon
-  - count dooku
   - bail organa
-  - jango fett
-  - lama su
-  - taun we
   - shaak ti
-  - grievous
-  - tarfful
+  - chancellor palpatine
+  - darth sidious
+  - darth vader
+  - darth maul
+  - wilhuff tarkin
+  - count dooku
+  - nute gunray
+  - general grievous
   - finn
   - rey
   - poe dameron
   - bb8
+  - kylo ren
+  - snoke
+  - general hux
   - captain phasma
   - padme amidala
+  - clone trooper
+  - stormtrooper
+  - first order stormtrooper
+  - atat
+  - atst
+  - x wing
+  - y wing
+  - a wing
+  - b wing
+  - snow speeder
+  - b1 battle droid
+  - super battle droid
+  - droideka
+  - stardestroyer
+  - tie fighter
+  - tie bomber
+  - imperial shuttle
+  - death star
+  - speeder bike
+  - sandcrawler
+  - millenium falcon
+  - slave 1
