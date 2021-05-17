@@ -1,16 +1,12 @@
-from flask import Flask, jsonify, request, render_template
-from waitress import serve
-from PIL import Image
-import logging
-import re
-import io
-from io import BytesIO
-from pathlib import Path
-import base64
 import os
 import marko
+from flask import Flask, jsonify, request, render_template
+from waitress import serve
+import logging
+from pathlib import Path
 
 from .inference import preprocess, load_model, predict_image
+from .utils.utils import base64_to_pil
 
 SCRIPT_PATH = Path(__file__).absolute()
 MODEL_PATH = SCRIPT_PATH.parent.parent / "saved_models"
@@ -22,17 +18,8 @@ logger = logging.getLogger("app")
 
 app = Flask(__name__)
 
-model = load_model(MODEL_PATH / "star_wars_mobilenet_2021-05-02_0054.h5")
+model = load_model(MODEL_PATH / "star_wars_mobilenet_2021-05-17_2357.h5")
 logger.info("Model loaded")
-
-
-def base64_to_pil(img_base64):
-    """
-    Convert base64 image data to PIL image
-    """
-    image_data = re.sub("^data:image/.+;base64,", "", img_base64)
-    pil_image = Image.open(BytesIO(base64.b64decode(image_data)))
-    return pil_image
 
 
 @app.route("/", methods=["GET"])
@@ -88,6 +75,6 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8000)
+    # app.run(debug=True, port=8000)
 
-    # serve(app, host="0.0.0.0", port=8000)
+    serve(app, host="0.0.0.0", port=8000)
