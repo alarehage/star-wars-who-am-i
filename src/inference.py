@@ -37,21 +37,6 @@ def preprocess(img):
     return img_array
 
 
-# def preprocess_og(file_path):
-#     """
-#     preprocess image file
-#     Args:
-#         file_path: path to file
-#     Returns:
-#         img_array: array of image after preprocessing
-#     """
-#     img = tf.keras.preprocessing.image.load_img(file_path, target_size=(224,224))
-#     img_array = tf.keras.preprocessing.image.img_to_array(img)
-#     img_array = preprocess_input(img_array[None,:,:])
-
-#     return img_array
-
-
 def load_model(model_path: Path):
     """
     load trained model from path
