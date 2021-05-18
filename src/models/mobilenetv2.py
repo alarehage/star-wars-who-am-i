@@ -142,7 +142,7 @@ class StarWarsChars:
         x = Dense(256, activation="relu")(x)
         x = Dense(128, activation="relu")(x)
         x = Dropout(0.2)(x)
-        predictions = Dense(65, activation="softmax")(x)
+        predictions = Dense(N_CLASSES, activation="softmax")(x)
 
         self.model = Model(base_model.input, predictions)
 
@@ -289,6 +289,11 @@ class StarWarsChars:
 
 if __name__ == "__main__":
     config = yaml.safe_load(open(SCRIPT_PATH / "model_cfg.yaml"))
+    N_CLASSES = len(
+        yaml.safe_load(open(SCRIPT_PATH / "../crawler/download_images_cfg.yaml"))[
+            "keywords"
+        ]
+    )
 
     DATA_PATH = config["data_path"]
     SEED = config["seed"]
