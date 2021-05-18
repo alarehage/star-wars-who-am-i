@@ -18,7 +18,7 @@ logger = logging.getLogger("app")
 
 app = Flask(__name__)
 
-model = load_model(MODEL_PATH / "star_wars_mobilenet_2021-05-17_2357.h5")
+model = load_model(MODEL_PATH / "star_wars_mobilenet_2021-05-18_1912.h5")
 logger.info("Model loaded")
 
 
@@ -35,7 +35,7 @@ def short_description():
             {
                 "model": "MobileNetv2",
                 "input-size": "224x224x3",
-                "num-classes": 42,
+                "num-classes": 65,
                 "pretrained-on": "ImageNet",
             }
         )
@@ -75,6 +75,6 @@ def predict():
 
 
 if __name__ == "__main__":
-    # app.run(debug=True, port=8000)
+    app.run(debug=True, port=8000)
 
-    serve(app, host="0.0.0.0", port=8000)
+    # serve(app, host="0.0.0.0", port=8000)
