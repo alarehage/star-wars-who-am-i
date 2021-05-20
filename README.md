@@ -6,47 +6,71 @@ Usage:
 2. Press "Submit"
 3. Get your prediction
 
-Star wars character classification for 42 star wars characters:
-- ackbar
+Star wars character classification for 65 star wars characters:
+- a wing
+- admiral ackbar
 - anakin skywalker
+- atat
+- atst
+- b wing
+- b1 battle droid
 - bail organa
 - bb8
 - boba fett
 - c3po
 - captain phasma
+- chancellor palpatine
 - chewbacca
+- clone trooper
 - count dooku
 - darth maul
+- darth sidious
 - darth vader
+- death star
+- droideka
+- ewok
 - finn
+- first order stormtrooper
+- general grievous
+- general hux
 - greedo
-- grievous
 - han solo
+- imperial shuttle
 - jabba the hutt
 - jango fett
 - jar jar binks
+- jawa
 - ki adi mundi
 - kit fisto
-- lama su
+- kylo ren
 - lando calrissian
 - leia organa
 - luke skywalker
 - mace windu
+- millenium falcon
 - mon mothma
 - nute gunray
 - obi wan kenobi
 - padme amidala
-- palpatine
 - plo koon
 - poe dameron
 - qui gon jinn
 - r2d2
 - rey
+- sand people
+- sandcrawler
 - shaak ti
 - shmi skywalker
-- tarfful
-- taun we
-- wicket systri warrick
+- slave 1
+- snoke
+- snow speeder
+- speeder bike
+- stardestroyer
+- stormtrooper
+- super battle droid
+- tie bomber
+- tie fighter
 - wilhuff tarkin
+- x wing
+- y wing
 - yoda
-
