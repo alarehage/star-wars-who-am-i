@@ -22,8 +22,10 @@ from sklearn.metrics import (
     confusion_matrix,
     ConfusionMatrixDisplay,
 )
-from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, History
+from tensorflow.keras.applications import ResNet50, MobileNetV2
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+from tensorflow.keras.applications.resnet50 import preprocess_input
+from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, History
 
 logging.basicConfig(
     format="[%(asctime)s] %(levelname)-8s %(name)-15s %(message)s",
@@ -129,11 +131,15 @@ class StarWarsChars:
             learning_rate (int): learning_rate
         """
         logger.info("Creating model")
-        base_model = tf.keras.applications.MobileNetV2(
+
+        models = {"MobileNetV2": MobileNetV2, "ResNet50": ResNet50}
+
+        base_model = models[MODEL_NAME](
             input_shape=(height, width, 3),
             weights="imagenet",
             include_top=False,
         )
+
         base_model.trainable = False
 
         # add fc layers
@@ -295,6 +301,7 @@ if __name__ == "__main__":
         ]
     )
 
+    MODEL_NAME = config["model_name"]
     DATA_PATH = config["data_path"]
     SEED = config["seed"]
     HEIGHT = config["height"]
