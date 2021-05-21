@@ -6,7 +6,7 @@ Usage:
 2. Press "Submit"
 3. Get your prediction
 
-Star wars character classification for 65 star wars characters:
+Star wars character classification for 67 star wars characters:
 - a wing
 - admiral ackbar
 - anakin skywalker
