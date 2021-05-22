@@ -7,6 +7,7 @@ from dataclasses import dataclass
 import logging
 from pathlib import Path
 from typing import Union
+from tensorflow.python.keras.applications.mobilenet_v2 import preprocess_input
 import yaml
 
 import numpy as np
@@ -23,8 +24,10 @@ from sklearn.metrics import (
     ConfusionMatrixDisplay,
 )
 from tensorflow.keras.applications import ResNet50, MobileNetV2
-from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
-from tensorflow.keras.applications.resnet50 import preprocess_input
+from tensorflow.keras.applications.mobilenet_v2 import (
+    preprocess_input as mobilenet_inputs,
+)
+from tensorflow.keras.applications.resnet50 import preprocess_input as resnet_inputs
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, History
 
 logging.basicConfig(
@@ -69,6 +72,11 @@ class StarWarsChars:
         train_data_path = Path(data_path) / "train"
         val_data_path = Path(data_path) / "val"
         test_data_path = Path(data_path) / "test"
+
+        if MODEL_NAME == "MobileNetV2":
+            preprocess_input = mobilenet_inputs
+        elif MODEL_NAME == "ResNet50":
+            preprocess_input = resnet_inputs
 
         # train
         train_datagen = ImageDataGenerator(
@@ -247,35 +255,36 @@ class StarWarsChars:
             classes[actuals], classes[preds], labels=class_labels
         )
         cm_disp = ConfusionMatrixDisplay(conf_mat, display_labels=class_labels)
-        cm_disp.plot(xticks_rotation="vertical")
+        fig, ax = plt.subplots(figsize=(20, 20))
+        cm_disp.plot(xticks_rotation="vertical", ax=ax)
 
-        # plot acc and loss
-        acc = history.history["accuracy"]
-        val_acc = history.history["val_accuracy"]
+        # # plot acc and loss
+        # acc = history.history["accuracy"]
+        # val_acc = history.history["val_accuracy"]
 
-        loss = history.history["loss"]
-        val_loss = history.history["val_loss"]
+        # loss = history.history["loss"]
+        # val_loss = history.history["val_loss"]
 
-        plt.figure(figsize=(10, 10))
+        # plt.figure(figsize=(10, 10))
 
-        # plot acc
-        plt.subplot(2, 2, 1)
-        plt.plot(acc, label="Training Accuracy")
-        plt.plot(val_acc, label="Validation Accuracy")
-        plt.legend(loc="lower right")
-        plt.ylabel("Accuracy")
-        plt.ylim([min(plt.ylim()), 1])
-        plt.title("Training and Validation Accuracy")
+        # # plot acc
+        # plt.subplot(2, 2, 1)
+        # plt.plot(acc, label="Training Accuracy")
+        # plt.plot(val_acc, label="Validation Accuracy")
+        # plt.legend(loc="lower right")
+        # plt.ylabel("Accuracy")
+        # plt.ylim([min(plt.ylim()), 1])
+        # plt.title("Training and Validation Accuracy")
 
-        # plot loss
-        plt.subplot(2, 2, 2)
-        plt.plot(loss, label="Training Loss")
-        plt.plot(val_loss, label="Validation Loss")
-        plt.legend(loc="upper right")
-        plt.ylabel("Cross Entropy")
-        plt.title("Training and Validation Loss")
-        plt.xlabel("epoch")
-        plt.show()
+        # # plot loss
+        # plt.subplot(2, 2, 2)
+        # plt.plot(loss, label="Training Loss")
+        # plt.plot(val_loss, label="Validation Loss")
+        # plt.legend(loc="upper right")
+        # plt.ylabel("Cross Entropy")
+        # plt.title("Training and Validation Loss")
+        # plt.xlabel("epoch")
+        # plt.show()
 
         return model_loss, model_accuracy
 
