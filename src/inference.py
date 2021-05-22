@@ -3,11 +3,23 @@ from pathlib import Path
 import numpy as np
 
 import tensorflow as tf
-from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+from tensorflow.keras.applications.mobilenet_v2 import (
+    preprocess_input as mobilenet_inputs,
+)
+from tensorflow.keras.applications.resnet50 import preprocess_input as resnet_inputs
 import yaml
 
 
 SCRIPT_PATH = Path(__file__).parent.absolute()
+
+config = yaml.safe_load(open(SCRIPT_PATH / "models/model_cfg.yaml"))
+
+MODEL_NAME = config["model_name"]
+
+if MODEL_NAME == "MobileNetV2":
+    preprocess_input = mobilenet_inputs
+elif MODEL_NAME == "ResNet50":
+    preprocess_input = resnet_inputs
 
 # def load_img(file_path):
 #     """
