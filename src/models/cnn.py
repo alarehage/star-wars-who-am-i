@@ -289,7 +289,7 @@ class StarWarsChars:
 
         self.model.save(
             save_path
-            / f"star_wars_mobilenet_{datetime.now().strftime('%Y-%m-%d_%H%M')}.h5"
+            / f"star_wars_{MODEL_NAME}_{datetime.now().strftime('%Y-%m-%d_%H%M')}.h5"
         )
 
 
