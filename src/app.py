@@ -18,7 +18,7 @@ logger = logging.getLogger("app")
 
 app = Flask(__name__)
 
-model = load_model(MODEL_PATH / "star_wars_mobilenet_2021-05-18_1912.h5")
+model = load_model(MODEL_PATH / "star_wars_resnet50_2021-05-22_0056.h5")
 logger.info("Model loaded")
 
 
@@ -75,6 +75,6 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8000)
+    # app.run(debug=True, port=8000)
 
-    # serve(app, host="0.0.0.0", port=8000)
+    serve(app, host="0.0.0.0", port=8000)
