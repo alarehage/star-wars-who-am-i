@@ -54,6 +54,7 @@ class StarWarsChars:
         height: int,
         width: int,
         batch_size: int,
+        model_name: str,
     ) -> ImageDataGenerator:
         """
         Get data generators for train/val/test
@@ -64,6 +65,7 @@ class StarWarsChars:
             height (int): input height
             width (int): input width
             batch_size (int): training batch size
+            model_name (str): name of model
 
         Returns:
             train/val/test data generators (ImageDataGenerator)
@@ -73,9 +75,9 @@ class StarWarsChars:
         val_data_path = Path(data_path) / "val"
         test_data_path = Path(data_path) / "test"
 
-        if MODEL_NAME == "MobileNetV2":
+        if model_name == "MobileNetV2":
             preprocess_input = mobilenet_inputs
-        elif MODEL_NAME == "ResNet50":
+        elif model_name == "ResNet50":
             preprocess_input = resnet_inputs
 
         # train
@@ -129,6 +131,8 @@ class StarWarsChars:
         height: int,
         width: int,
         learning_rate: float,
+        model_name: str,
+        n_classes: int,
     ) -> None:
         """
         Create CNN model for task
@@ -137,12 +141,14 @@ class StarWarsChars:
             height (int): input height
             width (int): input width
             learning_rate (int): learning_rate
+            model_name (str): name of model
+            n_classes (int): number of classes
         """
         logger.info("Creating model")
 
         models = {"MobileNetV2": MobileNetV2, "ResNet50": ResNet50}
 
-        base_model = models[MODEL_NAME](
+        base_model = models[model_name](
             input_shape=(height, width, 3),
             weights="imagenet",
             include_top=False,
@@ -156,7 +162,8 @@ class StarWarsChars:
         x = Dense(256, activation="relu")(x)
         x = Dense(128, activation="relu")(x)
         x = Dropout(0.2)(x)
-        predictions = Dense(N_CLASSES, activation="softmax")(x)
+
+        predictions = Dense(n_classes, activation="softmax")(x)
 
         self.model = Model(base_model.input, predictions)
 
@@ -288,17 +295,18 @@ class StarWarsChars:
 
         return model_loss, model_accuracy
 
-    def save_model(self, save_path: Union[Path, str]):
+    def save_model(self, save_path: Union[Path, str], model_name: str):
         """
         Save trained
 
         Args:
             save_path (Union[Path, str]): folder to save model to
+            model_name (str): name of model
         """
 
         self.model.save(
             save_path
-            / f"star_wars_{MODEL_NAME}_{datetime.now().strftime('%Y-%m-%d_%H%M')}.h5"
+            / f"star_wars_{model_name}_{datetime.now().strftime('%Y-%m-%d_%H%M')}.h5"
         )
 
 
@@ -324,7 +332,7 @@ if __name__ == "__main__":
     model = StarWarsChars()
     model.create_model(HEIGHT, WIDTH, LEARNING_RATE)
     train_generator, val_generator, test_generator = model.get_data_gens(
-        DATA_PATH, SEED, HEIGHT, WIDTH, BATCH_SIZE
+        DATA_PATH, SEED, HEIGHT, WIDTH, BATCH_SIZE, MODEL_NAME
     )
 
     history = model.fit(train_generator, val_generator, EPOCHS)
