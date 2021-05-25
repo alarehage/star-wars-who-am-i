@@ -27,7 +27,7 @@ def fetch_image_urls(
     search_url = "https://www.google.com/search?safe=off&site=&tbm=isch&source=hp&q={q}&oq={q}&gs_l=img"
 
     # load the page
-    wd.get(search_url.format(q=query))
+    wd.get(search_url.format(q=f"star wars {query}"))
 
     image_urls = set()
     image_count = 0
@@ -121,7 +121,7 @@ if __name__ == "__main__":
 
     for keyword in keywords:
         search_and_download(
-            search_term=f"star wars {keyword}",
+            search_term=keyword,
             driver_path="F:/Software/chromedriver.exe",
             target_path="F:/Data Stuff/Star Wars/star_wars_who_am_i/project_data/images",
             number_images=max_num,
