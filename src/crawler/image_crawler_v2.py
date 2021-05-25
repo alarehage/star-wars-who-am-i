@@ -33,7 +33,7 @@ def fetch_image_urls(
     image_count = 0
     results_start = 0
 
-    for _ in range(math.ceil((max_links_to_fetch - image_count) // 100)):
+    for _ in range(math.ceil((max_links_to_fetch - image_count) / 100)):
         scroll_to_end(wd)
     time.sleep(5)
 
