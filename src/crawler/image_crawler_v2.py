@@ -33,7 +33,7 @@ def fetch_image_urls(
     image_count = 0
     results_start = 0
 
-    for _ in range(math.ceil((max_links_to_fetch - image_count) / 100)):
+    for _ in range(math.ceil((max_links_to_fetch - image_count) // 100)):
         scroll_to_end(wd)
     time.sleep(5)
 
@@ -67,16 +67,14 @@ def fetch_image_urls(
 
                 if len(image_urls) >= max_links_to_fetch:
                     print(f"Found: {len(image_urls)} image links, done!")
-                    break
-        else:
-            print("Found:", len(image_urls), "image links, looking for more ...")
-            scroll_to_end(wd)
-            time.sleep(10)
+                    return image_urls
+
+        print("Found:", len(image_urls), "image links, looking for more ...")
+        scroll_to_end(wd)
+        time.sleep(10)
 
         # move the result startpoint further down
         results_start = number_results
-
-    return image_urls
 
 
 def persist_image(folder_path: str, url: str):
@@ -121,17 +119,18 @@ if __name__ == "__main__":
     keywords = config["keywords"]
     max_num = config["max_num"]
 
-    search_and_download(
-        search_term="star wars",
-        driver_path="F:/Software/chromedriver.exe",
-        target_path="F:/Data Stuff/Star Wars/star_wars_who_am_i/project_data/trial",
-        number_images=max_num,
-    )
+    for keyword in keywords:
+        search_and_download(
+            search_term=f"star wars {keyword}",
+            driver_path="F:/Software/chromedriver.exe",
+            target_path="F:/Data Stuff/Star Wars/star_wars_who_am_i/project_data/images",
+            number_images=max_num,
+        )
 
-    # for keyword in keywords:
-    #     search_and_download(
-    #         search_term=f"star wars {keyword}",
-    #         driver_path="F:/Software/chromedriver.exe",
-    #         target_path="F:/Data Stuff/Star Wars/star_wars_who_am_i/project_data/trial",
-    #         number_images=max_num,
-    #     )
+    # testing
+    # search_and_download(
+    #     search_term="star wars",
+    #     driver_path="F:/Software/chromedriver.exe",
+    #     target_path="F:/Data Stuff/Star Wars/star_wars_who_am_i/project_data/trial",
+    #     number_images=max_num,
+    # )
