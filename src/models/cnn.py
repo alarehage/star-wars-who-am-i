@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.models import Model
-from tensorflow.keras.layers import Dense, Dropout
+from tensorflow.keras.layers import Dense, Dropout, BatchNormalization
 from tensorflow.keras.optimizers import Adam
 from sklearn.metrics import (
     classification_report,
@@ -265,33 +265,33 @@ class StarWarsChars:
         fig, ax = plt.subplots(figsize=(20, 20))
         cm_disp.plot(xticks_rotation="vertical", ax=ax)
 
-        # # plot acc and loss
-        # acc = history.history["accuracy"]
-        # val_acc = history.history["val_accuracy"]
+        # plot acc and loss
+        acc = history.history["accuracy"]
+        val_acc = history.history["val_accuracy"]
 
-        # loss = history.history["loss"]
-        # val_loss = history.history["val_loss"]
+        loss = history.history["loss"]
+        val_loss = history.history["val_loss"]
 
-        # plt.figure(figsize=(10, 10))
+        plt.figure(figsize=(10, 10))
 
-        # # plot acc
-        # plt.subplot(2, 2, 1)
-        # plt.plot(acc, label="Training Accuracy")
-        # plt.plot(val_acc, label="Validation Accuracy")
-        # plt.legend(loc="lower right")
-        # plt.ylabel("Accuracy")
-        # plt.ylim([min(plt.ylim()), 1])
-        # plt.title("Training and Validation Accuracy")
+        # plot acc
+        plt.subplot(2, 2, 1)
+        plt.plot(acc, label="Training Accuracy")
+        plt.plot(val_acc, label="Validation Accuracy")
+        plt.legend(loc="lower right")
+        plt.ylabel("Accuracy")
+        plt.ylim([min(plt.ylim()), 1])
+        plt.title("Training and Validation Accuracy")
 
-        # # plot loss
-        # plt.subplot(2, 2, 2)
-        # plt.plot(loss, label="Training Loss")
-        # plt.plot(val_loss, label="Validation Loss")
-        # plt.legend(loc="upper right")
-        # plt.ylabel("Cross Entropy")
-        # plt.title("Training and Validation Loss")
-        # plt.xlabel("epoch")
-        # plt.show()
+        # plot loss
+        plt.subplot(2, 2, 2)
+        plt.plot(loss, label="Training Loss")
+        plt.plot(val_loss, label="Validation Loss")
+        plt.legend(loc="upper right")
+        plt.ylabel("Cross Entropy")
+        plt.title("Training and Validation Loss")
+        plt.xlabel("epoch")
+        plt.show()
 
         return model_loss, model_accuracy
 
@@ -330,7 +330,7 @@ if __name__ == "__main__":
     SAVE_PATH = Path(config["save_path"])
 
     model = StarWarsChars()
-    model.create_model(HEIGHT, WIDTH, LEARNING_RATE)
+    model.create_model(HEIGHT, WIDTH, LEARNING_RATE, MODEL_NAME, N_CLASSES)
     train_generator, val_generator, test_generator = model.get_data_gens(
         DATA_PATH, SEED, HEIGHT, WIDTH, BATCH_SIZE, MODEL_NAME
     )
@@ -338,7 +338,7 @@ if __name__ == "__main__":
     history = model.fit(train_generator, val_generator, EPOCHS)
 
     if SAVE:
-        model.save_model(SAVE_PATH)
+        model.save_model(SAVE_PATH, MODEL_NAME)
 
     preds = model.predict(test_generator)
 
