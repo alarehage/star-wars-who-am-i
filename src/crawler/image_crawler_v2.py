@@ -2,9 +2,7 @@ import io
 import time
 from pathlib import Path
 import hashlib
-import pandas as pd
 import requests
-from bs4 import BeautifulSoup
 from PIL import Image
 from selenium import webdriver
 import yaml
