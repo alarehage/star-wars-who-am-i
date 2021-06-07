@@ -18,7 +18,7 @@ logger = logging.getLogger("app")
 
 app = Flask(__name__)
 
-model = load_model(MODEL_PATH / "star_wars_resnet50_2021-05-22_0056.h5")
+model = load_model(MODEL_PATH / "star_wars_ResNet50_2021-06-02_0415.h5")
 logger.info("Model loaded")
 
 
