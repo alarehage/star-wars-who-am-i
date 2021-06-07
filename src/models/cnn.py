@@ -160,6 +160,7 @@ class StarWarsChars:
         x = base_model.output
         x = tf.keras.layers.GlobalAveragePooling2D()(x)
         x = Dense(256, activation="relu")(x)
+        x = Dropout(0.2)(x)
         x = Dense(128, activation="relu")(x)
         x = Dropout(0.2)(x)
 
@@ -219,8 +220,7 @@ class StarWarsChars:
             preds (np.ndarray): class predictions
         """
         logger.info("Getting predictions")
-        preds = np.round(self.model.predict(x=test_generator)).astype(int)
-        preds = np.argmax(preds, axis=1)
+        preds = np.argmax(self.model.predict(x=test_generator), axis=-1)
 
         return preds
 
@@ -228,7 +228,7 @@ class StarWarsChars:
         self,
         test_generator: ImageDataGenerator,
         preds: np.ndarray,
-        history: tf.keras.callbacks.History,
+        history: tf.keras.callbacks.History = None,
     ):
         """
         1. print test loss and acc
@@ -265,33 +265,34 @@ class StarWarsChars:
         fig, ax = plt.subplots(figsize=(20, 20))
         cm_disp.plot(xticks_rotation="vertical", ax=ax)
 
-        # plot acc and loss
-        acc = history.history["accuracy"]
-        val_acc = history.history["val_accuracy"]
+        if history:
+            # plot acc and loss
+            acc = history.history["accuracy"]
+            val_acc = history.history["val_accuracy"]
 
-        loss = history.history["loss"]
-        val_loss = history.history["val_loss"]
+            loss = history.history["loss"]
+            val_loss = history.history["val_loss"]
 
-        plt.figure(figsize=(10, 10))
+            plt.figure(figsize=(10, 10))
 
-        # plot acc
-        plt.subplot(2, 2, 1)
-        plt.plot(acc, label="Training Accuracy")
-        plt.plot(val_acc, label="Validation Accuracy")
-        plt.legend(loc="lower right")
-        plt.ylabel("Accuracy")
-        plt.ylim([min(plt.ylim()), 1])
-        plt.title("Training and Validation Accuracy")
+            # plot acc
+            plt.subplot(2, 2, 1)
+            plt.plot(acc, label="Training Accuracy")
+            plt.plot(val_acc, label="Validation Accuracy")
+            plt.legend(loc="lower right")
+            plt.ylabel("Accuracy")
+            plt.ylim([min(plt.ylim()), 1])
+            plt.title("Training and Validation Accuracy")
 
-        # plot loss
-        plt.subplot(2, 2, 2)
-        plt.plot(loss, label="Training Loss")
-        plt.plot(val_loss, label="Validation Loss")
-        plt.legend(loc="upper right")
-        plt.ylabel("Cross Entropy")
-        plt.title("Training and Validation Loss")
-        plt.xlabel("epoch")
-        plt.show()
+            # plot loss
+            plt.subplot(2, 2, 2)
+            plt.plot(loss, label="Training Loss")
+            plt.plot(val_loss, label="Validation Loss")
+            plt.legend(loc="upper right")
+            plt.ylabel("Cross Entropy")
+            plt.title("Training and Validation Loss")
+            plt.xlabel("epoch")
+            plt.show()
 
         return model_loss, model_accuracy
 
