@@ -1,5 +1,5 @@
 """
-CNN using MobileNetV2 for identifying Star Wars characters
+CNN for identifying Star Wars characters
 """
 
 from datetime import datetime
