@@ -1,4 +1,4 @@
-# WIP star_wars_who_am_i
+# An image classification project to identify Star Wars Characters
 Deployed at https://star-wars-who-am-i.herokuapp.com/. For sound, use non-Chrome browsers as autoplay function is disabled on Chrome
 
 Usage:
@@ -6,7 +6,7 @@ Usage:
 2. Press "Submit"
 3. Get your prediction
 
-Star wars character classification for 67 star wars characters:
+Star wars character classification for 67 characters:
 - a wing
 - admiral ackbar
 - anakin skywalker
