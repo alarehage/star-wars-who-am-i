@@ -1,7 +1,7 @@
-# An image classification app to identify Star Wars Characters
+# A Star Wars character identification app
 
 ## Intro
-Deployed at https://star-wars-who-am-i.herokuapp.com/.
+This is an image classification app to identify Star Wars characters, deployed at https://star-wars-who-am-i.herokuapp.com/.
 
 For sound, use non-Chrome browsers as autoplay function is disabled on Chrome.
 
