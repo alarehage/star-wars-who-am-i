@@ -2,29 +2,30 @@
 
 ## Intro
 This is an image classification app to identify Star Wars characters, deployed at https://star-wars-who-am-i.herokuapp.com/.
+- If it doesn't work the first time, _reload the page!_ The app may not have booted successfully in the first try.
+- For sound, use non-Chrome browsers as autoplay function is disabled on Chrome.
+- For a full list of identifiable characters, scroll to the bottom of this Readme.
 
-For sound, use non-Chrome browsers as autoplay function is disabled on Chrome.
-
-For a full list of identifiable characters, scroll to the bottom.
-
-Usage:
-1. Select an image
-2. Press "Submit"
-3. Get your prediction
+App usage:
+1. Watch the intro text (highly recommended!)
+2. Scroll down
+3. Select/drop an image into the box
+4. Press "Submit"
+5. Voilà! Your prediction and its probability will appear in no time
 
 ## Model building and performance
-Approach:
+#### Approach
 1. Crawled for images for each class
 2. Filtered out wrong/bad images
 3. Experimented with MobileNetv2 and ResNet50 for model training
 
-Results:
+#### Results
 - Weighted F1: 0.70
 - Weighted Precision: 0.72
 - Weighted Recall: 0.71
 - Acc: 0.71
 
-Findings:
+#### Findings
 - First data pull: 
     - MobileNetv2 produced an F1 of 0.57
     - Data issues: insufficient + not cleaned, some classes not clearly defined
