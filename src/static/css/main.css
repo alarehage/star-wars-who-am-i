@@ -102,8 +102,8 @@ body {
 }
 
 .upload-box #image-preview {
-  max-width: 14rem;
-  max-height: 8rem;
+  max-width: 20rem;
+  max-height: 12.5rem;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
