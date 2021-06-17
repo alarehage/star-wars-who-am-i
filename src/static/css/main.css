@@ -222,7 +222,7 @@ body {
     left: 45%;
     z-index: 1;
     margin: auto;
-    animation: logo 9s ease-out 9s;
+    animation: logo 10s ease-out 10s;
     opacity: 0;
 }
 
