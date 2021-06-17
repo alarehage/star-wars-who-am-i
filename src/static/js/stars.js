@@ -1,5 +1,5 @@
 // Sets the number of stars we wish to display
-const numStars = 100;
+const numStars = 1000;
 
 // For every star we want to display
 for (let i = 0; i < numStars; i++) {

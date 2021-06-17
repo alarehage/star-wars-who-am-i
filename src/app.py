@@ -58,7 +58,7 @@ def predict():
         logger.info("Image predicted")
 
         # consolidate results
-        result = f"Class: {pred}<br/>Proba: {str(round(proba, 2))}"
+        result = f"Character: {pred}<br/>Proba: {str(round(proba, 2))}"
         logger.info(f"Predicted class: {pred}")
         logger.info(f"Proba: {proba:0.2f}")
 

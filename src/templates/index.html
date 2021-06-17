@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <link rel="icon" , href="static/icons/lightsabers.png">
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Star Wars Who Am I</title>
@@ -128,12 +129,11 @@
 <section>
   <div class="main">
     <div class="title">
-      <!-- <h2 style="font-size:60px;">Heading 1</h2> -->
       <h3><b>Know me you do not, hmmm?</b></h3>
     </div>
 
     <div class="panel">
-      <input id="file-upload" class="hidden" type="file" accept="image/x-png,image/gif,image/jpeg" />
+      <input id="file-upload" class="hidden" type="file" accept="image/x-png,image/jpeg" />
       <label for="file-upload" id="file-drag" class="upload-box">
         <div id="upload-caption">Drop image here or click to select</div>
         <img id="image-preview" class="hidden" />
@@ -141,16 +141,18 @@
     </div>
     <div style="margin-bottom: 2rem;">
       <input type="button" value="Submit" class="button" onclick="submitImage();" />
-      <input type="button" value="Clear" class="button" onclick="clearImage();" />
+      <div class="divider" />
     </div>
+    <input type="button" value="Clear" class="button" onclick="clearImage();" />
+  </div>
 
-    <div id="image-box">
-      <img id="image-display" />
-      <div id="pred-result" class="hidden"></div>
-      <svg id="loader" class="hidden" viewBox="0 0 32 32" width="32" height="32">
-        <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
-      </svg>
-    </div>
+  <div id="image-box">
+    <img id="image-display" />
+    <div id="pred-result" class="hidden"></div>
+    <svg id="loader" class="hidden" viewBox="0 0 32 32" width="32" height="32">
+      <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+    </svg>
+  </div>
   </div>
 </section>
 
