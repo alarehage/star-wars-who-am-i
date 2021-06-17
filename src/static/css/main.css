@@ -115,7 +115,8 @@ body {
 
 #image-result {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  max-height: 30rem;
+  min-width: 24rem;
+  max-width: 30rem;
 }
 
 #image-box {
@@ -127,7 +128,8 @@ body {
 
 #image-display {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  max-height: 30rem;
+  min-width: 24rem;
+  max-width: 30rem;
 }
 
 #image-display.loading {
@@ -141,6 +143,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  min-width: 20rem;
+  max-width: 22rem;
 }
 
 #loader {
@@ -161,6 +165,7 @@ body {
   animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite,
     rotate 1.6s linear infinite;
 }
+
 @keyframes rotate {
   from {
     transform: rotate(0);
