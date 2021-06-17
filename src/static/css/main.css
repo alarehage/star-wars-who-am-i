@@ -72,13 +72,13 @@ body {
 
 /* Upload box */
 .upload-box {
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #666666;
   cursor: pointer;
-  width: 16rem;
-  height: 10rem;
+  width: 24rem;
+  height: 15rem;
   background: #fff;
-  border: 0.1rem dashed #838388;
+  border: 0.1rem dashed #000000;
   border-radius: 0.4rem;
   display: flex;
   justify-content: center;
