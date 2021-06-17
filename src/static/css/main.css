@@ -280,7 +280,7 @@ p {
 
 /* Set the scrolling animation and position it */
 #content {
-  animation: scroll 100s linear 15s;
+  animation: scroll 150s linear 15s;
   position: absolute;
   top: 100%;
 }
