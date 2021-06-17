@@ -88,6 +88,6 @@ def predict_image(model, img_array):
     for i, c in enumerate(classes):
         class_dict[i] = c
 
-    pred_class = class_dict[pred_class]
+    pred_class = class_dict[pred_class].title()
 
     return pred_class, pred_prob
