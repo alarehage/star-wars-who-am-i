@@ -59,6 +59,12 @@ body {
   -webkit-text-stroke: 1.11px black
 }
 
+.divider{
+  width:5px;
+  height:auto;
+  display:inline-block;
+}
+
 .hidden {
   display: none;
 }
@@ -107,15 +113,9 @@ body {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
-.divider{
-  width:5px;
-  height:auto;
-  display:inline-block;
-}
-
 #image-result {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  max-height: 20rem;
+  max-height: 30rem;
 }
 
 #image-box {
