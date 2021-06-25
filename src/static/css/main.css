@@ -79,7 +79,8 @@ body {
 
 /* Upload box */
 .upload-box {
-  font-size: 1rem;
+  font-size: 1.3rem;
+  font-weight: bold;
   color: #666666;
   cursor: pointer;
   width: 24rem;
