@@ -1,18 +1,18 @@
-import os
-import marko
-from flask import Flask, jsonify, request, render_template
-from waitress import serve
 import logging
 from pathlib import Path
 
-from .inference import preprocess, load_model, predict_image
+from flask import Flask, jsonify, render_template, request
+from waitress import serve
+
+from .inference import load_model, predict_image, preprocess
 from .utils.utils import base64_to_pil
 
 SCRIPT_PATH = Path(__file__).absolute()
 MODEL_PATH = SCRIPT_PATH.parent.parent / "saved_models"
 
 logging.basicConfig(
-    format="[%(asctime)s] %(levelname)-8s %(name)-12s %(message)s", level=logging.INFO
+    format="[%(asctime)s] %(levelname)-8s %(name)-12s %(message)s",
+    level=logging.INFO,
 )
 logger = logging.getLogger("app")
 
