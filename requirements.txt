@@ -19,3 +19,4 @@ tensorflow-cpu==2.4.2
 tensorflow-estimator==2.4.0
 waitress==2.0.0
 Werkzeug==1.0.1
+itsdangerous==1.1.0
