@@ -1,7 +1,7 @@
 # A Star Wars character identification app
 
 ## Intro
-This is an image classification app to identify Star Wars characters, deployed at https://star-wars-who-am-i.onrender.com/.
+This is an image classification app to identify Star Wars characters, deployed at https://star-wars-who-am-i.up.railway.app/.
 - If it doesn't work the first time, _reload the page!_ The app may not have booted successfully on the first try.
 - For sound, use non-Chrome browsers as autoplay function is disabled on Chrome.
 - For a full list of identifiable characters, scroll to the bottom of this Readme.
