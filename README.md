@@ -30,7 +30,7 @@ App usage:
     - MobileNetv2 produced an F1 of 0.57
     - Data issues: insufficient + not cleaned, some classes not clearly defined
 - Second pull: 
-    - ResNet50 achieved a max F1 of 0.64
+    - ResNet50 achieved an F1 of 0.64
     - Changed some class names to be better defined for pulling. Also added classes, totalling 67 (previously 42)
     - Tried experimenting with different FC layers/orders, but still felt data was insufficient (limited by crawler to 100 images, same as first pull)
 - Third pull:

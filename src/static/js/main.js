@@ -72,6 +72,11 @@ function submitImage() {
     return;
   }
 
+  // if ([".png"].some(x => urlInput.value.includes(x))) {
+  //   window.alert("Support for PNG files in development");
+  //   return;
+  // }
+
   loader.classList.remove("hidden");
   imageDisplay.classList.add("loading");
 

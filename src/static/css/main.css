@@ -43,7 +43,8 @@ body {
   background-image: url('https://i.redd.it/51x5ii2ekem01.jpg');
   /* background-image: url('https://i.redd.it/964hh5yorww41.jpg'); */
   background-repeat: no-repeat;
-  background-size: cover;  
+  background-size: cover;
+  background-position: center;
   height: 1368px;
   width: inherit;
   position: relative;
@@ -54,15 +55,23 @@ body {
   font-size: 4rem;
   font-weight: 300;
   margin: 0.8rem 0;
-  font-family: fantasy;
-  color: rgb(243, 243, 243);
-  -webkit-text-stroke: 1.11px black
+  font-family: Trebuchet MS;
+  color: rgb(0, 0, 0);
+  -webkit-text-stroke: 1px rgb(255, 255, 255)
 }
 
-.divider{
-  width:5px;
-  height:auto;
-  display:inline-block;
+.url-box {
+  width: 7cm;
+  height: 1cm;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #666666;
+}
+
+.divider {
+  width: 5px;
+  height: auto;
+  display: inline-block;
 }
 
 .hidden {
@@ -83,8 +92,8 @@ body {
   font-weight: bold;
   color: #666666;
   cursor: pointer;
-  width: 24rem;
-  height: 15rem;
+  width: 30rem;
+  height: 18rem;
   background: #fff;
   border: 0.1rem dashed #000000;
   border-radius: 0.4rem;
@@ -105,7 +114,7 @@ body {
 
 .upload-box:hover {
   border-color: rgb(0, 255, 115);
-  /* border-width: 1px; */
+  border-width: 1.5px;
   border-style: solid;
 }
 
@@ -172,19 +181,23 @@ body {
   from {
     transform: rotate(0);
   }
+
   to {
     transform: rotate(450deg);
   }
 }
+
 @keyframes line {
   0% {
     stroke-dasharray: 2, 85.964;
     transform: rotate(0);
   }
+
   50% {
     stroke-dasharray: 65.973, 21.9911;
     stroke-dashoffset: 0;
   }
+
   100% {
     stroke-dasharray: 2, 85.964;
     stroke-dashoffset: -65.973;
@@ -202,64 +215,69 @@ body {
 
 /* Set the animation, color, size and hide the text */
 .intro {
-    position: absolute;
-    top: 30%;
-    left: 35%;
-    z-index: 1;
-    animation: intro 3s ease-out 3s;
-    color: rgb(75, 213, 238);
-    font-family: sans-serif;
-    font-weight: 400;
-    font-size: 300%;
+  position: absolute;
+  top: 30%;
+  left: 35%;
+  z-index: 1;
+  animation: intro 3s ease-out 3s;
+  color: rgb(75, 213, 238);
+  font-family: sans-serif;
+  font-weight: 400;
+  font-size: 300%;
+  opacity: 0;
+}
+
+@keyframes intro {
+  0% {
     opacity: 0;
   }
 
-@keyframes intro {
-    0% {
-        opacity: 0;
-    }
-    20% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+  20% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 /* Set the animation & hide the logo */
-.logo {    
-    position: absolute;
-    top: 20%;
-    left: 45%;
-    z-index: 1;
-    margin: auto;
-    animation: logo 10s ease-out 10s;
-    opacity: 0;
+.logo {
+  position: absolute;
+  top: 20%;
+  left: 45%;
+  z-index: 1;
+  margin: auto;
+  animation: logo 10s ease-out 10s;
+  opacity: 0;
 }
 
 .logo svg {
-    width: inherit;
+  width: inherit;
 }
 
 /* Scale the logo down and maintain it centered */
 @keyframes logo {
-    0% {
-        width: 18em;        
-        transform: scale(2.75);
-        opacity: 1;
-    }
-    50% {
-        opacity: 1;
-        width: 18em;      
-    }
-    100% {
-        opacity: 0;
-        transform: scale(0.1);
-        width: 18em;
-    }
+  0% {
+    width: 18em;
+    transform: scale(2.75);
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+    width: 18em;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.1);
+    width: 18em;
+  }
 }
 
 p {
@@ -283,7 +301,7 @@ p {
   left: 50%;
 }
 
-#board:after {    
+#board:after {
   position: absolute;
   content: ' ';
   bottom: 60%;
@@ -299,17 +317,19 @@ p {
   top: 100%;
 }
 
-#title, #subtitle {
+#title,
+#subtitle {
   text-align: center;
 }
 
 @keyframes scroll {
-    0% {
-        top: 100%;
-    }
-    100% {
-        top: -170%;
-    }
+  0% {
+    top: 100%;
+  }
+
+  100% {
+    top: -170%;
+  }
 }
 
 html {
