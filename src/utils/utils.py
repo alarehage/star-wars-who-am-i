@@ -22,6 +22,6 @@ def get_image_from_url(url):
         url (str): input url
     """
     response = requests.get(url)
-    img = Image.open(BytesIO(response.content))
+    img = Image.open(BytesIO(response.content)).convert("RGB")
 
     return img

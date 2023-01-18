@@ -47,7 +47,7 @@ def short_description():
 def predict():
     if request.method == "POST":
         # convert to pillow format
-        if re.search("(http|www)", request.json):
+        if re.search("(http|www)", request.json[:5]):
             img = get_image_from_url(request.json)
         else:
             img = base64_to_pil(request.json)
