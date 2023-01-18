@@ -50,7 +50,7 @@ var loader = document.getElementById("loader");
 function submitURL() {
   console.log("submit URL");
 
-  if (!["http", "www"].some(x => urlInput.value.includes(x))) {
+  if (!["http", "www", "data"].some(x => urlInput.value.includes(x))) {
     window.alert("Please enter a valid URL starting with `http` or `www`.");
     return;
   }
