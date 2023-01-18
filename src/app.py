@@ -1,11 +1,12 @@
 import logging
+import re
 from pathlib import Path
 
 from flask import Flask, jsonify, render_template, request
 from waitress import serve
 
 from .inference import load_model, predict_image, preprocess
-from .utils.utils import base64_to_pil
+from .utils.utils import base64_to_pil, get_image_from_url
 
 SCRIPT_PATH = Path(__file__).absolute()
 MODEL_PATH = SCRIPT_PATH.parent.parent / "saved_models"
@@ -46,7 +47,10 @@ def short_description():
 def predict():
     if request.method == "POST":
         # convert to pillow format
-        img = base64_to_pil(request.json)
+        if re.search("(http|www)", request.json):
+            img = get_image_from_url(request.json)
+        else:
+            img = base64_to_pil(request.json)
         logger.info("Image file read and converted")
 
         # read and preprocess image
@@ -75,6 +79,6 @@ def predict():
 
 
 if __name__ == "__main__":
-    # app.run(debug=True, port=8000)
+    app.run(debug=True, port=8000)
 
     serve(app, host="0.0.0.0", port=8000)

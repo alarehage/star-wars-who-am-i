@@ -132,15 +132,26 @@
       <h3><b>Know me you do not, hmmm?</b></h3>
     </div>
 
-    <div class="panel">
+    <div class="url-input">
+      <input type="url" id="url" placeholder="Paste image URL here">
+      <!-- <button id="user-url">Submit URL</button> -->
+      <input type="button" value="Submit image from URL" class="button" onclick="submitURL();" />
+      <!-- <img id="image-preview" class="hidden" /> -->
+      <!-- <br> -->
+
+      <!-- <img src="" id="image"> -->
+
+    </div>
+
+    <div class="img-input">
       <input id="file-upload" class="hidden" type="file" accept="image/x-png,image/jpeg" />
       <label for="file-upload" id="file-drag" class="upload-box">
-        <div id="upload-caption">Drop image here or click to select</div>
+        <div id="upload-caption">Drop image here or click to select from folder</div>
         <img id="image-preview" class="hidden" />
       </label>
     </div>
     <div style="margin-bottom: 2rem;">
-      <input type="button" value="Submit" class="button" onclick="submitImage();" />
+      <input type="button" value="Submit image" class="button" onclick="submitImage();" />
       <div class="divider" />
     </div>
     <input type="button" value="Clear" class="button" onclick="clearImage();" />

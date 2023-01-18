@@ -1,4 +1,10 @@
 //========================================================================
+// URL input handling
+//========================================================================
+
+var urlInput = document.getElementById("url");
+
+//========================================================================
 // Drag and drop image handling
 //========================================================================
 
@@ -41,13 +47,28 @@ var loader = document.getElementById("loader");
 //========================================================================
 // Main button events
 //========================================================================
+function submitURL() {
+  console.log("submit URL");
+
+  if (!["http", "www"].some(x => urlInput.value.includes(x))) {
+    window.alert("Please enter a valid URL starting with `http` or `www`.");
+    return;
+  }
+
+  if (urlInput.value) {
+    // imagePreview.src = urlInput.value;
+    imageDisplay.src = urlInput.value;
+  }
+
+  submitImage();
+}
 
 function submitImage() {
   // action for the submit button
-  console.log("submit");
+  console.log("submit image file");
 
-  if (!imageDisplay.src || !imageDisplay.src.startsWith("data")) {
-    window.alert("Please select an image before submit.");
+  if (!urlInput.value && (!imageDisplay.src || !imageDisplay.src.startsWith("data"))) {
+    window.alert("Please select an image before submitting.");
     return;
   }
 
@@ -67,8 +88,8 @@ function clearImage() {
   imageDisplay.src = "";
   predResult.innerHTML = "";
 
-  hide(imagePreview);
-  hide(imageDisplay);
+  // hide(imagePreview);
+  // hide(imageDisplay);
   hide(loader);
   hide(predResult);
   show(uploadCaption);
