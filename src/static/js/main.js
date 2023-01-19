@@ -56,10 +56,13 @@ function submitURL() {
   }
 
   if (urlInput.value) {
-    // imagePreview.src = urlInput.value;
+    imagePreview.src = urlInput.value;
     imageDisplay.src = urlInput.value;
   }
 
+  show(imagePreview);
+  hide(uploadCaption)
+  show(imageDisplay);
   submitImage();
 }
 
@@ -93,8 +96,8 @@ function clearImage() {
   imageDisplay.src = "";
   predResult.innerHTML = "";
 
-  // hide(imagePreview);
-  // hide(imageDisplay);
+  hide(imagePreview);
+  hide(imageDisplay);
   hide(loader);
   hide(predResult);
   show(uploadCaption);
